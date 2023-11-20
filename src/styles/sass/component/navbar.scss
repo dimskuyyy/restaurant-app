@@ -1,0 +1,105 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+nav-bar{
+    background-color: $basecolor;
+    width: 100%;
+    display: inline-block;
+
+    .navigation-wrapper{
+        @include flexbox(column);
+        width: 100%;
+        max-width: 1200px;
+        margin:0 auto;
+        padding: 0.5rem 0;
+        
+        .nav-head{
+            @include flexbox(row,space-between,center);
+            width: 100%;
+
+            .nav-logo{
+                flex-grow: 0;
+                flex-shrink: 0;
+                height: 60px;
+    
+                img{
+                    height: 100%;
+                }
+            }
+    
+            .nav-hamburger button{
+                background-color: unset;
+                border: none;
+                width: 44px;
+                height: 44px;
+                gap: 0.35rem;
+                padding: 0.25rem;
+                border-radius: 0.25rem;
+                cursor: pointer;
+                @include flexbox(column,center,flex-end);
+    
+                span{
+                    background-color: $secondarycolor;
+                    display: inline-block;
+                    height: 0.25rem;
+                    border-radius: 0.25rem;
+                    transition: all 350ms ease-in-out;
+                }
+                span:nth-child(1){
+                    width: 60%;
+                }
+                span:nth-child(2){
+                    width: 40%;
+                }
+                span:nth-child(3){
+                    width: 80%;
+                }
+
+                &:hover{
+                    span{
+                        background-color: $darkersecondary ;
+                    }
+                }
+
+                &:focus{
+                    outline: 3px solid $darkersecondary;
+                }
+            }
+        }
+
+        .nav-link{
+            margin:1rem 0;    
+            width: 100%;
+            display: none;
+            ul{
+                @include flexbox(column);
+                li {
+                    width: 100%;
+                    a{
+                        height: 44px;
+                        width: 100%;
+                        padding: 0.5rem;
+                        transition-property: background-color,color;
+                        transition-duration: 350ms;
+                        transition-timing-function: ease-in-out; 
+                        color: white;
+                        text-decoration: none;
+                        @include flexbox(row,flex-start,center);
+
+                        &:focus{
+                            border-radius: 0.25rem;
+                            outline: 3px solid $darkersecondary;
+                        }
+                        &:hover{
+                            background-color: $darkerbase;
+                        }
+                    }
+                }
+            }
+
+            &.open{
+                display: block;
+            }
+        }
+    }
+}
