@@ -10,6 +10,7 @@ class navBar extends HTMLElement{
                     <section class="nav-logo">
                         <img src="./images/nusantara_logo.png" alt="Noesantara, Rekomendasi restoran terbaik di Indonesia">
                     </section>
+                    <a href="#mainContent" id="skipToContent">Skip To Content</a>
                     <section class="nav-hamburger">
                         <button id="dropdown">
                             <span></span>

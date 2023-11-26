@@ -2,79 +2,148 @@
 @import "../utils/mixin";
 
 nav-bar{
-    background-color: $basecolor;
     width: 100%;
     display: inline-block;
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    background-color: $basecolor;
 
     .navigation-wrapper{
         @include flexbox(column);
         width: 100%;
-        max-width: 1200px;
         margin:0 auto;
-        padding: 0.5rem 0;
+        padding: 1rem;
+        position: relative;
         
+        @media (min-width:$desktop) {
+            width: $maxContainer;
+            padding: 1rem 0.5rem;
+        }
+
+        @media (min-width:$tablet){
+            @include flexbox(row,space-between,center);   
+        }
+
         .nav-head{
             @include flexbox(row,space-between,center);
+            z-index: 100;
+            position: relative;
             width: 100%;
+
+            #skipToContent{
+                @include flexbox(row, center, center);
+                position: absolute;
+                z-index: 400;
+                padding: 0px 1rem;
+                left: 12rem;
+                top:-0.5rem;
+                height: 2.75rem;
+                text-decoration: none;
+                color: $basecolor;
+                background-color: $secondarycolor;
+                border-radius: 0.25rem;
+                transform: translateY(-9999px);
+
+                &:hover{
+                    transition: all .35s ease-in;
+                    background-color: $darkersecondary;
+                    color: $darkerbase;
+                }
+
+                &:focus{
+                    outline: 3px solid white;
+                    transform: translateY(0px);
+                }
+            }
 
             .nav-logo{
                 flex-grow: 0;
                 flex-shrink: 0;
-                height: 60px;
+                height: 42px;
+                z-index: 100;
     
                 img{
                     height: 100%;
                 }
             }
     
-            .nav-hamburger button{
-                background-color: unset;
-                border: none;
-                width: 44px;
-                height: 44px;
-                gap: 0.35rem;
-                padding: 0.25rem;
-                border-radius: 0.25rem;
-                cursor: pointer;
-                @include flexbox(column,center,flex-end);
-    
-                span{
-                    background-color: $secondarycolor;
-                    display: inline-block;
-                    height: 0.25rem;
-                    border-radius: 0.25rem;
-                    transition: all 350ms ease-in-out;
-                }
-                span:nth-child(1){
-                    width: 60%;
-                }
-                span:nth-child(2){
-                    width: 40%;
-                }
-                span:nth-child(3){
-                    width: 80%;
-                }
+            .nav-hamburger {
+                display: block;
 
-                &:hover{
+                @media (min-width:$tablet){
+                    display: none;
+                }
+                button{
+                    background-color: unset;
+                    border: none;
+                    width: 44px;
+                    height: 44px;
+                    gap: 0.35rem;
+                    padding: 0.25rem;
+                    border-radius: 0.25rem;
+                    cursor: pointer;
+                    @include flexbox(column,center,flex-end);
+        
                     span{
-                        background-color: $darkersecondary ;
+                        background-color: $secondarycolor;
+                        display: inline-block;
+                        height: 0.25rem;
+                        border-radius: 0.25rem;
+                        transition: all 350ms ease-in-out;
+                        
+                        &:nth-child(1){
+                            width: 60%;
+                        }
+                        &:nth-child(2){
+                            width: 40%;
+                        }
+                        &:nth-child(3){
+                            width: 80%;
+                        }
+                    }
+    
+                    &:hover{
+                        span{
+                            background-color: $darkersecondary ;
+                        }
+                    }
+    
+                    &:focus{
+                        outline: 3px solid $darkersecondary;
                     }
                 }
-
-                &:focus{
-                    outline: 3px solid $darkersecondary;
-                }
             }
+            
         }
 
         .nav-link{
-            margin:1rem 0;    
+            padding:1rem 0.5rem 0;
             width: 100%;
+            background-color: $basecolor;
             display: none;
+
+            &.open{
+                display: block;
+            }
+
+            @media (min-width:$tablet) {
+                display: block;
+                padding:0;
+            }
             ul{
                 @include flexbox(column);
+
+                @media (min-width:$tablet){
+                    @include flexbox(row,flex-end,center);
+
+                }
                 li {
                     width: 100%;
+
+                    @media (min-width:$tablet){
+                        width: max-content;
+                    }
                     a{
                         height: 44px;
                         width: 100%;
@@ -93,12 +162,13 @@ nav-bar{
                         &:hover{
                             background-color: $darkerbase;
                         }
+
+                        @media (min-width:$tablet){
+                            width: max-content;
+                            padding: 0.5rem 1.5rem;
+                        }
                     }
                 }
-            }
-
-            &.open{
-                display: block;
             }
         }
     }

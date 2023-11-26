@@ -1,0 +1,87 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+hero-section{
+    display: block;
+    width: 100%;
+    // background-image: url("../../public/images/heros/hero-image_1.jpg");
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    background-color: $basecolor;
+
+    .hero-container{
+        margin: 0px auto;
+        width: 100%;
+        position: relative;
+        
+        @media (min-width:$desktop){
+            width: $maxContainer;
+        }
+
+        .hero-content{
+            position: absolute;
+            inset: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .content{
+                h1{
+                    font-weight: 600;
+                    font-size: 32px;
+                    color: white;
+                    filter: drop-shadow(1px 1px 2px rgba($darkerbase,0.5));
+                    margin-bottom: 1.75rem;
+                    text-align: center;
+                    position: relative;
+                    cursor: default;
+
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        bottom: -0.75rem;
+                        left: 7rem;
+                        right: 7rem;
+                        height: 0.25rem;
+                        background-color: white;
+                        transition: all .35s ease-in;
+                    }
+
+                    &:hover::before{
+                        left: 5rem;
+                        right: 5rem;
+                    }
+                }
+
+                p{
+                    color: white;
+                    text-align: center;
+                    margin-bottom: 0.25rem;
+                    filter: drop-shadow(1px 1px 2px rgba($darkerbase,0.5));
+                    // font-size: small;
+                }
+            }
+        }
+
+        .hero-backdrop{
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            background-color: rgba($basecolor,0.5);
+        }
+
+        img{
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            object-position: top;
+
+            @media (min-width:$desktop) {
+                height: auto;
+                object-position: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+footer{
+    width: 100%;
+    background-color: $darkersecondary;
+    padding:1.5rem 0;
+
+    copy-right{
+        margin:0 auto;
+        width: 100%;
+
+        @media (min-width:$desktop){
+            width: $maxContainer;
+        }
+
+        p{
+            color: white;
+            text-align: center;
+
+            span{
+                font-weight: 600;
+            }
+        }
+    }
+}

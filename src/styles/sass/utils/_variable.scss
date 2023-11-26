@@ -1,4 +1,11 @@
-$basecolor : rgb(12, 44, 44);
-$darkerbase : rgb(6, 29, 29);
-$secondarycolor: rgb(241, 203, 138);
-$darkersecondary: rgb(209, 168, 96);
+//Color
+$basecolor : rgb(12 44 44);
+$darkerbase : rgb(6 29 29);
+$secondarycolor: rgb(241 203 138);
+$darkersecondary: rgb(209 168 96);
+
+//Screen
+$maxContainer:1000px;
+$mobile: 360px;
+$tablet: 768px;
+$desktop: 1200px;

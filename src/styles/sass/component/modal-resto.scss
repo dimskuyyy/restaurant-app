@@ -1,0 +1,112 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+modal-resto{
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background-color: #00000090;
+    @include flexbox(row, center, center);
+    .card-modal{
+        width: 100%;
+        max-width: 24rem;
+        overflow:hidden;
+        border-radius: 8px;
+        background-color: white;
+        position: relative;
+        
+        .close-modal{
+            right: 0.5rem;
+            top: 0.5rem;
+            position: absolute;
+            z-index: 20;
+
+            button{
+                background-color: #ffffff90;
+                width: 2.75rem;
+                height: 2.75rem;
+                border-radius: 50%;
+                border: none;
+                transition: all .35s ease-in;
+                cursor: pointer;
+                &:hover{
+                    background-color: #fff;
+                }
+                &:focus{
+                    outline: 3px solid $darkersecondary;
+                    background-color: #fff;
+                }
+            }
+        }
+
+        .card-cover{
+            position: relative;
+    
+            img{
+                width: 100%;
+                height: 10.25rem;
+                object-fit: cover;
+                filter: brightness(0.7);
+            }
+    
+            p{
+                position: absolute;
+                bottom: 0.75rem;
+                right: 0;
+                background-color: white;
+                padding: 0.5rem;
+                font-size: 14px;
+                color: $basecolor;
+                font-weight: 600;
+            }
+        }
+    
+        .card-content{
+            padding: 0.5rem 1rem 1rem;
+            >p{
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: 0.75rem;
+                color: $basecolor;
+            }
+    
+            .card-description{
+                h2{
+                    font-weight: bold;
+                    font-size: 1.25rem;
+                    margin-bottom: 0.5rem;
+                    color: $basecolor;
+                }
+                p{
+                    max-height: 18rem;
+                    overflow-y: auto;
+                    font-size: 0.875rem;
+                    line-height: 1.25rem;
+                }
+            }
+        }
+
+        .page-link{
+            width: 100%;
+            padding: 1rem;
+            a{
+                @include flexbox(row,center,center);
+                width: 100%;
+                background-color: $basecolor;
+                border-radius: 0.5rem;
+                color: $darkersecondary;
+                text-decoration: none;
+                height: 2.75rem;
+                &:hover{
+                    transition: all .35s ease-in;
+                    background-color: $darkerbase;
+                    color: $secondarycolor;
+                }
+                &:focus{
+                    border: 3px solid $darkersecondary;
+                    outline: 3px solid $darkerbase;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+@import "../component/navbar.scss";
+@import "../component/hero.scss";
+@import "../component/resto.scss";
+@import "../component/copyright.scss";
+@import "../component/modal-resto.scss";
+
+body{
+    background-color: $basecolor;
+    position: relative;
+
+    main{
+        margin-top: 4.75rem;
+
+        article{
+            margin-top: 3rem;
+            padding: 1rem;
+        }
+    }
+
+    footer{
+        margin-top: 3rem;
+    }
+}
