@@ -11,7 +11,7 @@ module.exports = merge(common, {
     hot:true,
     watchFiles:["src/**/*"],
     compress: true,
-    port:8080,
+    port:3000,
     client: {
       overlay: {
         errors: true,
