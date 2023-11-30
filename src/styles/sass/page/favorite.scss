@@ -1,0 +1,57 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+@import "../template/template";
+
+
+.favorite-container{
+  width: 100%;
+  padding: 1rem;
+  margin-top: 6rem;
+  margin: 0 auto;
+  @media (min-width:$tablet) {
+    width: $maxContainer;
+    padding: 0.5rem;
+    margin-top: 8rem;
+  }
+
+  .favorite-title{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    position: relative;
+    color: white;
+
+    &::before{
+      content: '';
+      bottom: -1rem;
+      position: absolute;
+      height: 0.25rem;
+      left: 40%;
+      right: 40%;
+      background-color: white;
+    }
+  }
+
+  favorite-section{
+    min-height: 80vh;
+    @include createRestaurantCard();
+
+    .no-restaurant{
+      grid-column: 2;
+      @include flexbox(column,flex-start,center);
+      margin-top: 1rem;
+      .warn-svg{
+        width: 5rem;
+        stroke: $disabled-text;
+      }
+      p{
+        text-align: center;
+        font-size: 1rem;
+        margin-top: 1rem;
+        line-height: 1.25rem;
+        color: $disabled-text;
+      }
+    }
+  }
+}

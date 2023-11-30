@@ -1,17 +1,19 @@
 @import "../component/navbar.scss";
 @import "../component/hero.scss";
-@import "../component/resto.scss";
+@import "../component/restaurant.scss";
 @import "../component/copyright.scss";
 @import "../component/modal-resto.scss";
+
+*{
+  font-family: 'Helvetica';
+}
 
 body{
     background-color: $basecolor;
     position: relative;
 
     main{
-        margin-top: 4.75rem;
-
-        article{
+        .explore-list{
             margin-top: 3rem;
             padding: 1rem;
         }

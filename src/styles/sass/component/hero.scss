@@ -4,17 +4,14 @@
 hero-section{
     display: block;
     width: 100%;
-    // background-image: url("../../public/images/heros/hero-image_1.jpg");
-    // background-position: center;
-    // background-repeat: no-repeat;
-    // background-size: cover;
     background-color: $basecolor;
+    margin-top: 4.75rem;
 
     .hero-container{
         margin: 0px auto;
         width: 100%;
         position: relative;
-        
+
         @media (min-width:$desktop){
             width: $maxContainer;
         }
@@ -23,11 +20,10 @@ hero-section{
             position: absolute;
             inset: 0;
             z-index: 20;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            @include flexbox(column,center,center);
 
             .content{
+              margin-bottom: 2rem;
                 h1{
                     font-weight: 600;
                     font-size: 32px;
@@ -63,6 +59,29 @@ hero-section{
                     // font-size: small;
                 }
             }
+        }
+
+        .cta-to-list{
+          background-color: $secondarycolor;
+          padding: 0.75rem 1.25rem;
+          border-radius: 0.25rem;
+          color:white;
+          border: none;
+          color: $basecolor;
+          font-size: 1rem;
+          font-weight: 600;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover{
+            transition: all .35s ease-in;
+            background-color: $darkersecondary;
+            color:white;
+          }
+
+          &:focus{
+            outline: 3px solid white;
+          }
         }
 
         .hero-backdrop{

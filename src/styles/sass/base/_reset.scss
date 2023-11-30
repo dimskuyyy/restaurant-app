@@ -25,6 +25,10 @@ footer, header, hgroup, main, menu, nav, section {
 	display: block;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 *[hidden] {
     display: none;
 }

@@ -1,10 +1,11 @@
-class navBar extends HTMLElement{
-    constructor(){
-        super();
-        this.render();
-    }
-    render(){
-        this.innerHTML = `
+class navBar extends HTMLElement {
+  constructor() {
+    super();
+    this.render();
+  }
+
+  render() {
+    this.innerHTML = `
             <div class="navigation-wrapper">
                 <article class="nav-head">
                     <section class="nav-logo">
@@ -21,14 +22,14 @@ class navBar extends HTMLElement{
                 </article>
                 <article class="nav-link">
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="#">Favorite</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#/favorite">Favorite</a></li>
                         <li><a href="https://github.com/dimskuyyy">About Us</a></li>
                     </ul>
                 </article>
             </div>
         `;
-    }
+  }
 }
 
-customElements.define('nav-bar',navBar);
+customElements.define('nav-bar', navBar);

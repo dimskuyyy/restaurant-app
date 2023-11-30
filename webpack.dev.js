@@ -8,10 +8,10 @@ module.exports = merge(common, {
   devServer: {
     static: path.resolve(__dirname, 'dist'),
     open: true,
-    hot:true,
-    watchFiles:["src/**/*"],
+    hot: true,
+    watchFiles: ['src/**/*'],
     compress: true,
-    port:3000,
+    port: 9000,
     client: {
       overlay: {
         errors: true,

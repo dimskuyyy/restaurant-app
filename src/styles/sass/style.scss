@@ -1,6 +1,9 @@
 @import "./base/reset";
+@import "./template/loading";
 @import "./page/home.scss";
+@import "./page/detail.scss";
+@import "./page/favorite.scss";
 
 *{
-    font-family: 'Helvetica';
+    font-family: 'Helvetica'!important;
 }

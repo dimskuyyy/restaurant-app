@@ -1,0 +1,314 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+.detail-container{
+  position: relative;
+  padding: 1rem;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 6rem;
+
+  @media (min-width:$desktop){
+    width: $maxContainer;
+    margin-top: 8rem;
+  }
+
+  #favoriteButton {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2rem;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &.favorite-active{
+      background-color: $secondarycolor;
+    }
+
+    &.favorite-inactive{
+      background-color: white;
+    }
+
+    &:focus {
+      outline: 2px solid $darkersecondary;
+      outline-offset: 2px;
+    }
+
+    &.favorite-active:hover{
+      background-color: $darkersecondary;
+    }
+
+    &.favorite-inactive:hover{
+      background-color: $secondarycolor;
+    }
+
+    .heart-active,.heart-inactive{
+      width: 1.75rem;
+      height: 1.75rem;
+      color: $basecolor;
+    }
+
+    .heart-active{
+      fill: $basecolor;
+    }
+  }
+
+  .detail-main{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 1rem;
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    .detail-image{
+      width: 100%;
+      flex-shrink: 0;
+      img{
+        width: 100%;
+        height: 100%;
+        min-height: 25rem;
+        object-fit: cover;
+        border-radius: 0.5rem;
+      }
+    }
+
+    .detail-info{
+      background-color: $darkersecondary;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      .detail-title{
+        font-size: 2rem;
+        color: white;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        position: relative;
+
+        &::before{
+          content: '';
+          position: absolute;
+          bottom: -0.875rem;
+          left: 0;
+          width: 30%;
+          height: 0.25rem;
+          background-color: white;
+        }
+      }
+
+      .detail-categories,.detail-rating,.detail-address{
+        @include flexbox(row,flex-start,center);
+        margin-bottom: 0.5rem;
+        gap: 0.5rem;
+        span{
+          color: white;
+          font-size: 1rem;
+        }
+      }
+      .detail-rating{
+        svg{
+          width: 1.5rem;
+          fill: $basecolor;
+          stroke: transparent;
+        }
+      }
+      .detail-categories,.detail-address{
+        svg{
+          width: 1.5rem;
+          stroke: $basecolor;
+        }
+      }
+
+      .detail-description{
+        margin-top: 1.25rem;
+        h2{
+          color: white;
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+        p{
+          font-size: 1rem;
+          line-height: 1.25rem;
+          color: $basecolor;
+          background-color: white;
+          padding: 1rem;
+          border-radius: 0.25rem;
+        }
+      }
+    }
+
+  }
+  .detail-food-drinks{
+    width: 100%;
+    margin-top: 1rem;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+
+    @media (min-width:$tablet) {
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    .detail-food,.detail-drink{
+      background-color: $darkersecondary;
+      border-radius: 0.5rem;
+      padding: 1rem;
+
+      h3{
+        color: white;
+        display: inline-block;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        position: relative;
+
+        &::before{
+          content: '';
+          position: absolute;
+          bottom: -0.5rem;
+          left: 0;
+          width: 80%;
+          height: 0.25rem;
+          background-color: white;
+        }
+      }
+
+      ol{
+        li{
+          list-style: decimal;
+          list-style-position: inside;
+          color: white;
+          margin-bottom: 0.5rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .detail-feedback{
+    width: 100%;
+    margin-top: 3rem;
+    h2{
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      position: relative;
+      color: white;
+
+      &::before{
+        content: '';
+        position: absolute;
+        bottom: -0.875rem;
+        left: 40%;
+        right: 40%;
+        height: 0.25rem;
+        background-color: white;
+      }
+    }
+
+    form{
+      width: 100%;
+      @include flexbox(column,flex-end,flex-end);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      #feedbackName{
+        width: 100%;
+        height: 2.75rem;
+        border-radius: 0.25rem;
+        padding: 0 1rem;
+        border: none;
+        font-size: 1rem;
+        box-sizing: border-box;
+
+        &:focus{
+          outline: 3px solid $secondarycolor;
+          outline-offset: 2px;
+        }
+      }
+      #feedbackDetail{
+        width: 100%;
+        border: none;
+        border-radius: 0.25rem;
+        padding: 1rem;
+        min-height: 6rem;
+        font-size: 1rem;
+        box-sizing: border-box;
+
+        &:focus{
+          outline: 3px solid $secondarycolor;
+          outline-offset: 2px;
+        }
+      }
+
+      #errorStateForm{
+        margin: 0;
+        color: $secondarycolor;
+        font-size: 1rem;
+
+        &.feedback-error{
+          color: red;
+        }
+      }
+
+      #submitFeedback{
+        height: 2.75rem;
+        border: none;
+        border-radius: 0.25rem;
+        padding: 0 1rem;
+        background-color: $secondarycolor;
+        font-size: 1rem;
+        width: 100%;
+
+        @media (min-width:$tablet) {
+          width: max-content;
+        }
+
+        &:hover{
+          background-color: $darkersecondary;
+          color: white;
+        }
+      }
+
+    }
+    #feedbackContainer{
+      margin-top: 0.5rem;
+
+      .feedback-list{
+        width: 100%;
+        background-color: white;
+        padding:1rem;
+        border-radius: 0.25rem;
+        margin-bottom: 0.5rem;
+
+        .feedback-info{
+          margin-bottom: 0.75rem;
+          span{
+            font-size: 0.875rem;
+            color: $basecolor;
+            font-weight: 600;
+
+            &.feedback-date{
+              color: $darkersecondary;
+            }
+          }
+        }
+
+        .feedback-content{
+          font-size: 1.25rem;
+          font-style: italic;
+          display: -webkit-box;
+          -webkit-line-clamp: 4;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
