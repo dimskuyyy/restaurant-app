@@ -2,7 +2,8 @@ import ApiRestaurant from '../../../data/restaurant-source';
 import CONFIG from '../../../globals/config';
 import { separatingObject } from '../../../helpers';
 import UrlParser from '../../../routes/url-parser';
-import '../favorite/favorite-button';
+import FavoritePresenter from '../favorite/favorite-presenter';
+import DbFavoriteRestaurant from '../../../data/favorite-idb';
 import { createFeedbackCard } from '../../templates/template-creator';
 import { createErrorState, createLoadingSpinner } from '../../templates/load-creator';
 
@@ -53,11 +54,11 @@ class DetailContainer extends HTMLElement {
 
     this.innerHTML = `
       <div class="detail-container">
-        <favorite-button data-id="${id}"></favorite-button>
+        <div id="favoriteButtonWrapper"></div>
 
         <div class="detail-main">
           <div class="detail-image">
-            <img src="${CONFIG.LARGE_IMAGE_URL}/${pictureId}" alt="${name} Restaurant">
+            <img src="${CONFIG.LARGE_IMAGE_URL}/${pictureId}" alt="${name} Restaurant" width="500" height="400" loading="lazy">
           </div>
 
           <div class="detail-info">
@@ -105,12 +106,12 @@ class DetailContainer extends HTMLElement {
         <div class="detail-feedback">
           <h2 class="feedback-title">Ulasan Pelanggan</h2>
           <form id="feedbackForm">
-            <input id="feedbackName" type="text" placeholder="Nama">
-            <textarea id="feedbackDetail" placeholder="Tulis Ulasan kamu disini"></textarea>
+            <input id="feedbackName" type="text" placeholder="Nama" name="name">
+            <textarea id="feedbackDetail" placeholder="Tulis Ulasan kamu disini" name="comment"></textarea>
 
             <div id="errorStateForm"></div>
 
-            <button id="submitFeedback" type="submit">
+            <button id="submitFeedback" type="submit" aria-label="Tekan untuk beri ulasan">
               Tambahkan Ulasan
             </button>
           </form>
@@ -172,6 +173,20 @@ class DetailContainer extends HTMLElement {
       } finally {
         resetForm();
       }
+    });
+
+    FavoritePresenter.init({
+      favoriteModel: DbFavoriteRestaurant,
+      favoriteButtonWrapper: document.getElementById('favoriteButtonWrapper'),
+      restaurant: {
+        pictureId,
+        name,
+        address,
+        city,
+        description,
+        rating,
+        id,
+      },
     });
   }
 

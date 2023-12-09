@@ -6,17 +6,15 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    static: path.resolve(__dirname, 'dist'),
+    static: path.resolve(__dirname, 'src'),
     open: true,
-    hot: true,
-    watchFiles: ['src/**/*'],
-    compress: true,
     port: 9000,
     client: {
       overlay: {
         errors: true,
-        warnings: false,
+        warnings: true,
       },
     },
+    compress: true,
   },
 });

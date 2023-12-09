@@ -5,7 +5,7 @@ const createRestaurantCard = (restaurant) => {
   return `
   <article>
     <div class="card-cover">
-      <img src="${CONFIG.MEDIUM_IMAGE_URL}/${restaurant.pictureId}" alt="Preview ${restaurant.name}">
+      <img src="${CONFIG.SMALL_IMAGE_URL}/${restaurant.pictureId}" alt="Preview ${restaurant.name}" loading="lazy" width="425" height="365">
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
           <path
@@ -34,7 +34,7 @@ const createRestaurantCard = (restaurant) => {
       </div>
     </div>
     <div class="detail-link">
-      <a href="/#/restaurant/${restaurant.id}">Lihat Detail</a>
+      <a href="/#/restaurant/${restaurant.id}" aria-label="lihat detail restoran">Lihat Detail</a>
     </div>
   </article>
   `;
@@ -79,7 +79,7 @@ const createWarn = (message) => {
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
       </svg>
 
-      <p>${message}</p>
+      <p class="no-restaurant-text">${message}</p>
     </div>
   `;
 };

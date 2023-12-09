@@ -8,17 +8,17 @@ class navBar extends HTMLElement {
     this.innerHTML = `
             <div class="navigation-wrapper">
                 <article class="nav-head">
-                    <section class="nav-logo">
-                        <img src="./images/nusantara_logo.png" alt="Noesantara, Rekomendasi restoran terbaik di Indonesia">
-                    </section>
-                    <a href="#mainContent" id="skipToContent">Skip To Content</a>
-                    <section class="nav-hamburger">
-                        <button id="dropdown">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </section>
+                  <a href="#mainContent" id="skipToContent" aria-label="tekan untuk skip to content">Skip To Content</a>
+                  <section class="nav-logo">
+                      <img src="./images/nusantara_logo.png" alt="Noesantara, Rekomendasi restoran terbaik di Indonesia" tabindex="0">
+                  </section>
+                  <section class="nav-hamburger">
+                      <button id="dropdown" aria-label="menu-dropdown">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </button>
+                  </section>
                 </article>
                 <article class="nav-link">
                     <ul>

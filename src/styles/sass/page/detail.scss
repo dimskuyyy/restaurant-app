@@ -35,12 +35,12 @@
     }
 
     &:focus {
-      outline: 2px solid $darkersecondary;
+      outline: 2px solid $moresecondary;
       outline-offset: 2px;
     }
 
     &.favorite-active:hover{
-      background-color: $darkersecondary;
+      background-color: $moresecondary;
     }
 
     &.favorite-inactive:hover{
@@ -80,7 +80,7 @@
     }
 
     .detail-info{
-      background-color: $darkersecondary;
+      background-color: $moresecondary;
       border-radius: 0.5rem;
       padding: 1rem;
       .detail-title{
@@ -156,7 +156,7 @@
     }
 
     .detail-food,.detail-drink{
-      background-color: $darkersecondary;
+      background-color: $moresecondary;
       border-radius: 0.5rem;
       padding: 1rem;
 
@@ -271,7 +271,7 @@
         }
 
         &:hover{
-          background-color: $darkersecondary;
+          background-color: $moresecondary;
           color: white;
         }
       }
@@ -295,7 +295,7 @@
             font-weight: 600;
 
             &.feedback-date{
-              color: $darkersecondary;
+              color: $moresecondary;
             }
           }
         }

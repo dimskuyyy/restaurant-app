@@ -62,8 +62,10 @@ hero-section{
         }
 
         .cta-to-list{
+          @include flexbox(row,center,center);
           background-color: $secondarycolor;
-          padding: 0.75rem 1.25rem;
+          padding: 0px 1.25rem;
+          height: 2.75rem;
           border-radius: 0.25rem;
           color:white;
           border: none;
@@ -98,7 +100,7 @@ hero-section{
             object-position: top;
 
             @media (min-width:$desktop) {
-                height: auto;
+                height: 600px;
                 object-position: center;
             }
         }
